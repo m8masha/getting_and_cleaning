@@ -1,7 +1,7 @@
 #clean up environment
 rm(list = ls())
 
-#I downloaded and unziped files manualy. 
+#I downloaded and unzipped files manually. 
 
 #set working directory (for example, setwd("C:\\R\\peer grading"))
 
