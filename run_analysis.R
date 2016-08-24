@@ -26,7 +26,7 @@ y <- rbind(train_y, test_y)
 subj <- rbind(train_subj, test_subj)
 x <- rbind(train_x, test_x)
 
-# Replace lables with activity names (paragraph 3 of the assignment).
+# Replace labels with activity names (paragraph 3 of the assignment).
  
 activity <- read.table("C:\\R\\peer grading\\UCI HAR Dataset\\activity_labels.txt")
 y_dfr <-  as.data.frame(y)
