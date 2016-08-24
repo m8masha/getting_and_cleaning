@@ -10,8 +10,9 @@ I should  create one R script called run_analysis.R that does the following:
 Work done.
 ========
 I completed all 5 steps mentioned above, but in another order.
-<b> Preliminary work. </b> I downloaded and unzipped files manually. The "submit your assignment” page says that "the code should have a file run_analysis.R in the main directory that <b> can be run as long as the Samsung data is in your working directory </b> ",  so it is not an error or drawback. 
-<b> Run_analysis. R </b> 
+<p> Preliminary work. </p> 
+I downloaded and unzipped files manually. The "submit your assignment” page says that "the code should have a file run_analysis.R in the main directory that <i> can be run as long as the Samsung data is in your working directory </i> ",  so it is not an error or drawback. 
+<p> Run_analysis. R </p> 
 <p>  1.  The code in Run_analysis. R merges corresponding  data sets: </p>
 <p>   - with labels of activity names for test and train into data set “y” </p>
 <p>   - with test and train subjects into data set “subj” </p>
