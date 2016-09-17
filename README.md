@@ -1,5 +1,5 @@
 This repository contains my answer for the Coursera Getting and Cleaning data course project.
-According to the assignment, 
+Assignment.
 ========
 I should  create one R script called run_analysis.R that does the following:
 <p> •	Merges the training and the test sets to create one data set. </p>
