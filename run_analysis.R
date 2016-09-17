@@ -3,8 +3,6 @@ rm(list = ls())
 
 #I downloaded and unzipped files manually. 
 
-#set working directory (for example, setwd("C:\\R\\peer grading"))
-
 #download "test" set into R
 test_y <- read.table(file=".\\UCI HAR Dataset\\test\\y_test.txt",
                      header=FALSE)
@@ -50,8 +48,8 @@ colnames(main)[colnames(main)=="activity_col"] <- "activity"
 # Extract only the measurements on the mean and standard deviation for each measurement
   #(paragraph 2 of the assignment).
 
-mean_and_std <- main[,grep("mean|std",colnames(main))]
-
+df1 <- grep("subject|activity|mean|std", colnames(main), value=TRUE)
+main <-subset(main, select=df1)
 
 # Create a second, independent tidy data set with the average of each variable for 
   #each activity and each subject (paragraph 5 of the assignment).
@@ -62,7 +60,6 @@ mean_and_std <- main[,grep("mean|std",colnames(main))]
   #https://www.google.ru/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&cad=rja&uact=8&ved=0ahUKEwjjtOzf59TOAhXCXCwKHZpnA7EQFggdMAA&url=https%3A%2F%2Fwww.jstatsoft.org%2Farticle%2Fview%2Fv059i10%2Fv59i10.pdf&usg=AFQjCNGJCmyjRW1EPmG-O4BZ6hnwfjxcxA&sig2=3pN5suQc89YjTTvPRFBbhg)
   #so I split my dataset into 2 data tables. 
 
-
 library(data.table)
 library(dplyr)
 main <- as.data.table(main)
@@ -71,11 +68,11 @@ main <- as.data.table(main)
 main_by_subject <- main
 main_by_subject$activity <- NULL
 
-  ##create table where activity is observational unit
+ ##create table where activity is observational unit
 main_by_activity <- main
 main_by_activity$subject <- NULL
 
-  ##create 2 tables (for 2 different types of observational units) with mean for each varible
+  ##create 2 tables (for 2 different types of observational units) with mean for each variable
     ##and each observational unit
 tidy_subj <- main_by_subject %>% group_by(subject) %>% summarise_each(funs(mean))
 tidy_activity <- main_by_activity %>% group_by(activity) %>% summarise_each(funs(mean))
@@ -86,6 +83,7 @@ tidy_activity <- main_by_activity %>% group_by(activity) %>% summarise_each(funs
     ##it doesn't look tidy if you regard it as one table, but there are 2 tables and each of them is tidy.
     ##As you can read above and in README.md, I have to prepare 2 data tables (each for one type of 
     ##observational unit)  
+
 tidy_subj$activity <- "not_applicable"
 tidy_activity$subject <- "not_applicable"
 tidy_two_tbls_in_one <- rbind(tidy_subj, tidy_activity)
